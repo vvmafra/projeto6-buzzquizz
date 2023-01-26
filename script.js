@@ -225,3 +225,33 @@ function checkurl(imagem) {
     return false;
   }
 }
+/*Até aqui é o do WIlliam*/
+function checkInputs() {
+  let validation = 0;
+
+  const titulo = document.querySelector(".titulo");
+  if (titulo.value.length < 20 || titulo.value.length > 65) {
+    alert("O número de caracteres digitados deve ser entre 20 e 65");
+  } else {
+    validation++;
+  }
+  /*Aqui estava a parte de verificar URL*/
+  const perguntas = document.querySelector(".perguntas");
+  if (perguntas.value < 3) {
+    alert("A quantidade mínima de perguntas deve ser maior ou igual a 3!");
+  } else {
+    validation++;
+  }
+
+  const niveis = document.querySelector(".niveis");
+  if (niveis.value < 2) {
+    alert("A quantidade mínima de níveis deve ser maior ou igual a 2!");
+  } else {
+    validation++;
+  }
+
+  if (validation === 4) {
+    const esconder = document.querySelector(".tela-3");
+    esconder.classList.add(".escondido");
+  }
+}
