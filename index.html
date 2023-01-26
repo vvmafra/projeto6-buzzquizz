@@ -1,76 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
     <title>Projetão: BuzzQuizz</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">
-        <p>BuzzQuizz</p>
+      <p>BuzzQuizz</p>
     </div>
     <div class="tela-1">
-        <div class="nenhum-quizz-criado">
-            <h1>
-                Você não criou nenhum<br>quizz ainda :(
-            </h1>
-            <div class="criar-quizz" onclick="esconder()">
-            <h2>
-                Criar Quizz
-            </h2>
-            </div>
-        </div> <!--Div quando não tem nenhum quizz criado-->
-
-        <div class="seus-quizzes escondido">
-            <div class="seus-quizzes-mais">
-            <h1>
-                Seus Quizzes
-            </h1>
-            <ion-icon name="add-circle"></ion-icon>
-            </div>
-            <div class="seus-quizzes-imgs">
-                <div class="quizzes-existentes">
-                </div>
-                <div class="quizzes-existentes">
-                </div>
-                <div class="quizzes-existentes">
-                </div>
-            </div>
-        </div> <!--Div quando tiver quizzes criados (esta com classe escondido)-->
-
-        <div class="todos-quizzes">
-            <h1>
-                Todos os Quizzes
-            </h1>
-            <div class="todos-quizzes-imgs">
-                <div class="quizzes-existentes">
-                </div>
-                <div class="quizzes-existentes">
-                </div>
-                <div class="quizzes-existentes">
-                </div>
-                <div class="quizzes-existentes">
-                </div>
-                <div class="quizzes-existentes">
-                </div>
-                <div class="quizzes-existentes">
-                </div>
-            </div>
+      <div class="nenhum-quizz-criado">
+        <h1>Você não criou nenhum<br />quizz ainda :(</h1>
+        <div class="criar-quizz" onclick="esconder()">
+          <h2>Criar Quizz</h2>
         </div>
-    </div> <!--Tela 1-->
+      </div>
+      <!--Div quando não tem nenhum quizz criado-->
+
+      <div class="seus-quizzes escondido">
+        <div class="seus-quizzes-mais">
+          <h1>Seus Quizzes</h1>
+          <ion-icon name="add-circle"></ion-icon>
+        </div>
+        <div class="seus-quizzes-imgs">
+          <div class="quizzes-existentes"></div>
+          <div class="quizzes-existentes"></div>
+          <div class="quizzes-existentes"></div>
+        </div>
+      </div>
+      <!--Div quando tiver quizzes criados (esta com classe escondido)-->
+
+      <div class="todos-quizzes">
+        <h1>Todos os Quizzes</h1>
+        <div class="todos-quizzes-imgs">
+          <div class="quizzes-existentes"></div>
+          <div class="quizzes-existentes"></div>
+          <div class="quizzes-existentes"></div>
+          <div class="quizzes-existentes"></div>
+          <div class="quizzes-existentes"></div>
+          <div class="quizzes-existentes"></div>
+        </div>
+      </div>
+    </div>
+    <!--Tela 1-->
 
     <div class="tela-2 escondido">TELA 2</div>
-    <div class="tela-3 escondido">TELA 3</div>
+    <div class="tela-3 escondido"></div>
 
-
-    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
