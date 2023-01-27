@@ -2,7 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   background-color: rgba(250, 250, 250, 1);
 }
@@ -190,6 +190,10 @@ body {
   border-style: hidden;
 }
 
+input:focus {
+  outline: none;
+}
+
 .botao-prosseguir {
   width: 368.86px;
   height: 54px;
@@ -302,7 +306,7 @@ input {
   font-size: 20px;
   line-height: 23px;
   color: #000000;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .tela-3 input {
   font-style: italic;
@@ -310,7 +314,7 @@ input {
   font-size: 19px;
   line-height: 22px;
   color: #bababa;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .caixa-de-perguntas-2 {
   margin-top: 24px;
@@ -332,7 +336,7 @@ input {
   font-size: 20px;
   line-height: 23px;
   color: #000000;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .caixa-fake-2 {
   width: 601px;
@@ -350,7 +354,7 @@ input {
   font-size: 20px;
   line-height: 23px;
   color: #000000;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .caixa-fake-3 {
   width: 601px;
@@ -368,7 +372,7 @@ input {
   font-size: 20px;
   line-height: 23px;
   color: #000000;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .caixa-fake-1 img {
   width: 26px;
@@ -402,4 +406,60 @@ input {
 }
 .escondido {
   display: none;
+}
+
+.tela-34 {
+  margin-top: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tela-34 h1 {
+  font-weight: 700;
+  font-size: 23px;
+  margin-bottom: 46px;
+}
+
+.tela-34 img {
+  width: 500px;
+  height: 266px;
+  border-radius: 5px;
+  margin-bottom: 45px;
+}
+
+.btn-sucesso {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+}
+
+.btn-1 {
+  width: 220px;
+  height: 44px;
+  background: #ec362d;
+  border-radius: 15px;
+  border-style: hidden;
+  cursor: pointer;
+}
+
+.btn-1 p {
+  font-weight: 400;
+  font-size: 21px;
+  color: #fff5f4;
+}
+
+.btn-2 p {
+  font-weight: 400;
+  font-size: 21px;
+  color: #818181;
+}
+.btn-2 {
+  width: 220px;
+  height: 44px;
+  background-color: #fafafa;
+  border-style: hidden;
+  cursor: pointer;
 }

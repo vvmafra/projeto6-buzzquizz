@@ -1,73 +1,69 @@
-let perguntas;
-let verificarCor;
-let imagem;
+let perguntas
+let verificarCor
+let imagem
 function esconder() {
-    const tela1 = document.querySelector(".tela-1");
-    tela1.classList.add("escondido");
+  const tela1 = document.querySelector('.tela-1')
+  tela1.classList.add('escondido')
 
-    const tela31 = document.querySelector(".tela-31");
-    tela31.classList.remove("escondido");
+  const tela31 = document.querySelector('.tela-31')
+  tela31.classList.remove('escondido')
 }
 
-/*Até aqui Victor*/
+// /*Até aqui Victor*/
 
 function checkInputs() {
-    let validation = 0;
-    const verificarImagem = document.querySelector(".imagem");
-    imagem = verificarImagem.value;
+  let validation = 0
+  const verificarImagem = document.querySelector('.imagem')
+  imagem = verificarImagem.value
 
-    const titulo = document.querySelector(".titulo input");
-    if (titulo.value.length < 20 || titulo.value.length > 65) {
-        alert("O número de caracteres digitados deve ser entre 20 e 65");
-    } else {
-        validation++;
-    }
+  const titulo = document.querySelector('.titulo input')
+  if (titulo.value.length < 20 || titulo.value.length > 65) {
+    alert('O número de caracteres digitados deve ser entre 20 e 65')
+  } else {
+    validation++
+  }
 
-    if (checkurl(imagem) === false) {
+  if (checkurl(imagem) === false) {
+    alert('Insira um endereco valido.')
+  } else {
+    validation++
+  }
+  //     /*Aqui estava a parte de verificar URL*/
+  const perguntas = document.querySelector('.perguntas input')
+  if (perguntas.value < 3) {
+    alert('A quantidade mínima de perguntas deve ser maior ou igual a 3!')
+  } else {
+    validation++
+  }
 
-        alert("Insira um endereco valido.");
-    } else {
-        validation++;
-    }
-    /*Aqui estava a parte de verificar URL*/
-    const perguntas = document.querySelector(".perguntas input");
-    if (perguntas.value < 3) {
-        alert("A quantidade mínima de perguntas deve ser maior ou igual a 3!");
-    } else {
-        validation++;
-    }
+  const niveis = document.querySelector('.niveis input')
+  if (niveis.value < 2) {
+    alert('A quantidade mínima de níveis deve ser maior ou igual a 2!')
+  } else {
+    validation++
+  }
 
-    const niveis = document.querySelector(".niveis input");
-    if (niveis.value < 2) {
-        alert("A quantidade mínima de níveis deve ser maior ou igual a 2!");
-    } else {
-        validation++;
-    }
-
-    if (validation === 4) {
-        console.log("oi");
-        aplicarTela3A();
-        const tela32 = document.querySelector(".tela-32");
-        tela32.classList.remove("escondido");
-        tela3A();
-    }
-    else {
-        alert("Deu erro, faça novamente");
-    }
+  if (validation === 4) {
+    console.log('oi')
+    aplicarTela3A()
+    const tela32 = document.querySelector('.tela-32')
+    tela32.classList.remove('escondido')
+    tela3A()
+  } else {
+    alert('Deu erro, faça novamente')
+  }
 }
-
 
 function aplicarTela3A() {
-    const esconder = document.querySelector(".tela-31");
-    esconder.classList.add("escondido");
+  const esconder = document.querySelector('.tela-31')
+  esconder.classList.add('escondido')
 }
-/*Até aqui Vitória*/
+// /*Até aqui Vitória*/
 
 function tela3A() {
+  const tela3A = document.querySelector('.tela-32')
 
-    const tela3A = document.querySelector(".tela-32");
-
-    tela3A.innerHTML = `
+  tela3A.innerHTML = `
   <h1 class="titulo-tela3">Crie suas perguntas</h1>
     <div class="caixa-fake-1 escondido">
       <h1>Pergunta 1</h1>
@@ -238,43 +234,60 @@ function tela3A() {
       </div>
     </div>
     <div onclick="verificarPergunta()" class="botao-quizz">Prosseguir pra criar níveis</div>
-    `;
-
-
+    `
 }
 function verificarPergunta() {
+  perguntas = document.querySelector('.input-pergunta')
+  const cor = document.querySelector('.input-cor')
+  verificarCor = cor.value
+  verificarImagem = document.querySelector('.imagem')
 
-    perguntas = document.querySelector(".input-pergunta");
-    const cor = document.querySelector(".input-cor");
-    verificarCor = cor.value;
-    verificarImagem = document.querySelector(".imagem");
-
-    imagem = verificarImagem.value;
-    const verificarPergunta = perguntas.value;
-    console.log(verificarPergunta);
-    if (verificarPergunta.length <= "19") {
-        alert("Insira no mínimo 20 caracteres em uma pergunta.");
-    }
-    is_hexadecimal(cor.value);
-    checkurl(verificarImagem.value);
+  imagem = verificarImagem.value
+  const verificarPergunta = perguntas.value
+  console.log(verificarPergunta)
+  if (verificarPergunta.length <= '19') {
+    alert('Insira no mínimo 20 caracteres em uma pergunta.')
+  }
+  is_hexadecimal(cor.value)
+  checkurl(verificarImagem.value)
 }
 function is_hexadecimal(verificarCor) {
-    let regex = new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/);
+  let regex = new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
 
-    if (regex.test(verificarCor)) {
-        return true;
-    } else {
-        alert("Insira uma cor hexadecimal!");
-    }
+  if (regex.test(verificarCor)) {
+    return true
+  } else {
+    alert('Insira uma cor hexadecimal!')
+  }
 }
 function checkurl(imagem) {
-    regexp =
-        /^(?:(?:https?):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-    if (regexp.test(imagem)) {
-        return true;
-    } else {
-        alert("Insira um endereco valido.");
-        return false;
-    }
+  regexp =
+    /^(?:(?:https?):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/
+  if (regexp.test(imagem)) {
+    return true
+  } else {
+    alert('Insira um endereco valido.')
+    return false
+  }
 }
 /*Até aqui é o do WIlliam*/
+tela3C()
+function tela3C() {
+  const tela3C = document.querySelector('.tela-34')
+
+  tela3C.innerHTML = `
+     <h1 class="titulo">Seu quizz está pronto!</h1>
+     <div class="img-sucesso">
+       <p class="titulo-img-sucesso"></p>
+       <img src="" />
+     </div>
+     <div class="btn-sucesso">
+       <button class="btn-1">
+         <p>Acessar quizz</p>
+       </button>
+       <button  class="btn-2" onclick="esconder()">
+       <p>Voltar pra home</p>
+   </button>
+     </div>
+     `
+}
