@@ -13,8 +13,7 @@ function esconder() {
   const tela31 = document.querySelector(".tela-31");
   tela31.classList.remove("escondido");
 }
-
-/*Até aqui Victor*/
+// /*Até aqui Victor*/
 
 function checkInputs() {
   let validation = 0;
@@ -33,7 +32,6 @@ function checkInputs() {
   } else {
     validation++;
   }
-  /*Aqui estava a parte de verificar URL*/
   const perguntas = document.querySelector(".perguntas input");
   if (perguntas.value < 3) {
     alert("A quantidade mínima de perguntas deve ser maior ou igual a 3!");
@@ -58,16 +56,13 @@ function checkInputs() {
     alert("Deu erro, faça novamente");
   }
 }
-
 function aplicarTela3A() {
   const esconder = document.querySelector(".tela-31");
   esconder.classList.add("escondido");
 }
-/*Até aqui Vitória*/
-
+// /*Até aqui Vitória*/
 function tela3A() {
   const tela3A = document.querySelector(".tela-32");
-
   tela3A.innerHTML = `
   <h1 class="titulo-tela3">Crie suas perguntas</h1>
     <div onclick="abrirPergunta1()" class="caixa-fake-1 escondido">
@@ -238,7 +233,7 @@ function tela3A() {
         />
       </div>
     </div>
-    <div onclick="verificarPergunta()" class="botao-quizz">Prosseguir pra criar níveis</div>
+    <div onclick="verificarPergunta(), escondeTela32()" class="botao-quizz">Prosseguir pra criar níveis</div>
     `;
 }
 function verificarPergunta() {
@@ -262,18 +257,41 @@ function verificarPergunta() {
   checkurl(verificarImagemInput.value);
   verificarResposta();
   respostaCorretaIncorreta();
-  /*escondeTela32();*/ // <== aqui tem que tirar o comentário quando arrumar o código da vic
+  // <== aqui tem que tirar o comentário quando arrumar o código da vic
 }
-/*function escondeTela32() {
+function escondeTela32() {
   const tela32 = document.querySelector(".tela-32");
   tela32.classList.add("escondido");
 
-  const tela33 = document.querySelector(".tela-33");
-
-  tela33.classList.remove("escondido");
-}*/
+  tela3C();
+}
 
 //Aqui tem que mudar o querySelector pro nome da div da Vic
+
+function is_hexadecimal(verificarCor) {
+  let regex = new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/);
+
+  if (regex.test(verificarCor)) {
+    return true;
+  } else {
+    alert("Insira uma cor hexadecimal!");
+  }
+}
+function verificarPergunta() {
+  perguntas = document.querySelector(".input-pergunta");
+  const cor = document.querySelector(".input-cor");
+  verificarCor = cor.value;
+  verificarImagem = document.querySelector(".imagem");
+
+  imagem = verificarImagem.value;
+  const verificarPergunta = perguntas.value;
+  console.log(verificarPergunta);
+  if (verificarPergunta.length <= "19") {
+    alert("Insira no mínimo 20 caracteres em uma pergunta.");
+  }
+  is_hexadecimal(cor.value);
+  checkurl(verificarImagem.value);
+}
 function is_hexadecimal(verificarCor) {
   let regex = new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/);
 
@@ -390,3 +408,34 @@ function abrirPergunta3() {
   esconderFake3.classList.add("escondido");
 }
 /*Até aqui é o do WIlliam*/
+function tela3C() {
+  const tela3C = document.querySelector(".tela-34");
+
+  tela3C.classList.remove("escondido");
+
+  tela3C.innerHTML = `
+     <h1 class="titulo">Seu quizz está pronto!</h1>
+     <div class="img-sucesso">
+       <p class="titulo-img-sucesso"></p>
+       <img src="" /> 
+     </div>
+     <div class="btn-sucesso">
+       <button class="btn-1">
+         <p>Acessar quizz</p>
+       </button>
+       <button onclick="chamarTela1()" class="btn-2" onclick="esconder()">
+       <p>Voltar pra home</p>
+   </button>
+     </div>
+     `;
+  //Adicionar template string + ${} para adicionar a foto do quizz na tag img
+}
+function chamarTela1() {
+  const esconderTela34 = document.querySelector(".tela-34");
+
+  esconderTela34.classList.add("escondido");
+
+  const aparecerTela1 = document.querySelector(".tela-1");
+
+  aparecerTela1.classList.remove("escondido");
+}
