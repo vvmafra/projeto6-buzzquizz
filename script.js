@@ -1,16 +1,6 @@
 let perguntas;
 let verificarCor;
 let imagem;
-let imagemInput;
-let resposta;
-let incorreta1;
-let incorreta2;
-let incorreta3;
-let tituloNivel;
-let acertoMin;
-let imagemNivel;
-let descricaoNivel;
-
 function esconder() {
   const tela1 = document.querySelector(".tela-1");
   tela1.classList.add("escondido");
@@ -51,14 +41,16 @@ function checkInputs() {
     validation++;
   }
 
-  if (validation === 4) {
-    aplicarTela3A();
-    const tela32 = document.querySelector(".tela-32");
-    tela32.classList.remove("escondido");
-    tela3A();
-  } else {
-    alert("Deu erro, faça novamente");
-  }
+    if (validation === 4) {
+        console.log("oi");
+        aplicarTela3A();
+        const tela32 = document.querySelector(".tela-32");
+        tela32.classList.remove("escondido");
+        tela3A();
+    }
+    else {
+        alert("Deu erro, faça novamente");
+    }
 }
 function aplicarTela3A() {
   const esconder = document.querySelector(".tela-31");
@@ -412,149 +404,3 @@ function abrirPergunta3() {
   esconderFake3.classList.add("escondido");
 }
 /*Até aqui é o do WIlliam*/
-function tela3D() {
-  const tela3C = document.querySelector(".tela-33");
-  tela3C.classList.add("escondido");
-
-  const tela3D = document.querySelector(".tela-34");
-
-  tela3D.classList.remove("escondido");
-
-  tela3D.innerHTML = `
-     <h1 class="titulo">Seu quizz está pronto!</h1>
-     <div class="img-sucesso">
-       <p class="titulo-img-sucesso"></p>
-       <img src="" /> 
-     </div>
-     <div class="btn-sucesso">
-       <button class="btn-1">
-         <p>Acessar quizz</p>
-       </button>
-       <button onclick="chamarTela1()" class="btn-2" onclick="esconder()">
-       <p>Voltar pra home</p>
-   </button>
-     </div>
-     `;
-  //Adicionar template string + ${} para adicionar a foto do quizz na tag img
-}
-function chamarTela1() {
-  const esconderTela34 = document.querySelector(".tela-34");
-
-  esconderTela34.classList.add("escondido");
-
-  const aparecerTela1 = document.querySelector(".tela-1");
-
-  aparecerTela1.classList.remove("escondido");
-}
-
-function tela3C() {
-  const niveis = document.querySelector(".niveis input");
-  const tela3C = document.querySelector(".tela-33");
-  tela3C.classList.remove("escondido");
-  const tela3A = document.querySelector(".tela-32");
-  tela3A.classList.add("escondido");
-  
-  let niveisValor = Number(niveis.value);
-
-  tela3C.innerHTML = '';
-  let template = `
-  <div class="titulo-nivel caixa-tela-33"> 
-    <div class="pergunta-nivel">
-      <br />
-        <h1>Nível 1</h1>
-          <input type="text" value="" placeholder="Título do nível" class="input-niveis"/>
-          <input type="text" value="" placeholder="% de acerto mínima" class="input-acerto-min"/>
-          <input type="text" value="" placeholder="URL da imagem do nível" class="url-imagem-nivel"/>
-          <input type="text" value="" placeholder="Descrição do nível" class="descricao-nivel"/>
-      </div>
-  </div>
-  `
-  tela3C.innerHTML += template;
-
-  for (let i=1; i < niveisValor; i++) {
-    template = ` 
-    
-    <div class="titulo-nivel caixa-tela-33"> 
-      <div class="pergunta-nivel">
-        <br />
-          <h1>Nível ${i+1}</h1>
-            <input type="text" value="" placeholder="Título do nível" class="input-niveis"/>
-            <input type="text" value="" placeholder="% de acerto mínima" class="input-acerto-min"/>
-            <input type="text" value="" placeholder="URL da imagem do nível" class="url-imagem-nivel"/>
-            <input type="text" value="" placeholder="Descrição do nível" class="descricao-nivel"/>
-      </div>
-    </div>
-    `;
-
-    tela3C.innerHTML += template;
-
-  }
-  const templateBotao = `
-  <div onclick="verificarTela33()" class="botao-nivel">Prosseguir pra criar níveis</div>
-  `;
-  tela3C.innerHTML += templateBotao;
-
-
-}
-
-/*function abrirCaixaFake(nivelSelecionado) {
-    const caixaFake = document.querySelector(".caixa-fake");
-    caixaFake.classList.add("escondido");
-    const infoNiveis = document.querySelector(".titulo-niveis.escondido");
-    console.log(infoNiveis);
-  }*/
-
-function verificarTela33() {
-  tituloNivel = document.querySelectorAll(".input-niveis");
-  acertoMin = document.querySelectorAll(".input-acerto-min");
-  imagemNivel = document.querySelectorAll(".url-imagem-nivel");
-  descricaoNivel = document.querySelectorAll(".descricao-nivel");
-  checarTituloNivel();
-  checarAcertoMin();
-
-if (checarTituloNivel() === true && checarAcertoMin() === true && checarImagemNiveis() === true && checarDescricao() === true ){
-  tela3D();
-} else {
-  alert("Tem algum erro no cadastro dos níveis")}
-}
-
-
-
-
-function checarTituloNivel() {
-  const niveis = document.querySelector(".niveis input");
-  let niveisValor = Number(niveis.value);
-
-  for (let i=0 ; i < niveisValor ; i++) {
-    if (tituloNivel[i].value.length <=10) {
-      return false;
-    } return true;
-}
-}
-
-function checarAcertoMin() {
-  const niveis = document.querySelector(".niveis input");
-  let niveisValor = Number(niveis.value);
-
-  for (let i=0 ; i < niveisValor-1 ; i++) {
-    if (Number(acertoMin[i].value) < 0 || Number(acertoMin[i].value) > 100 || acertoMin[i].value === "") {
-      return false;
-
-    } return true;
-}
-}
-
-function checarImagemNiveis() {
-  return true
-}
-
-function checarDescricao() {
-  const niveis = document.querySelector(".niveis input");
-  let niveisValor = Number(niveis.value);
-
-  for (let i=0 ; i < niveisValor ; i++) {
-    if (descricaoNivel[i].value.length <= 30) {
-      return false;
-    } return true;
-}
-}
